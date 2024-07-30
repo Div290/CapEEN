@@ -163,16 +163,25 @@ def get_evaluation_metrics(model, dataset):
         int_output[layer_idx] = logits
       # free the GPU memory
       preds = []
-      threshold = 0.6
+      threshold = 1.5
       for i in range(max_length):
         layer_idx = 0
+        agg_conf = 0
         for _ in range(len(int_output)):
+          prev_logit = None
           logits = int_output[layer_idx]
           logit = logits[0][i].argmax(dim = -1).item()
           logit_2 = outputs.logits.detach().cpu()
           probabilities = torch.softmax(logits, dim=-1)
           confidence = torch.max(probabilities, dim=-1).values
-          if confidence[0][i] >= threshold:
+          if prev_logits!= None:
+              if prev_logits == logit:
+                  agg_conf+=confidence
+              else:
+                  agg_conf==confidence
+          else:
+              agg_conf==confidence
+          if agg_conf >= threshold:
             preds.append(logit)
             if logit != 50256:
               layer_list.append(layer_idx)
