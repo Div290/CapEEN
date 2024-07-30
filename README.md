@@ -1,6 +1,6 @@
 # CapEEN
 
-## This is the official repository for the paper CapEEN: Image Captioning with early exits and knowledge distillation
+## This is the official repository for the paper BEEM
 
 The entire procedure could be completed in three steps:
 
