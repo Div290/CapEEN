@@ -1,4 +1,4 @@
-# CapEEN
+# BEEM
 
 ## This is the official repository for the paper BEEM
 
