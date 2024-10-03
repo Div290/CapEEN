@@ -1,7 +1,6 @@
-# BEEM
+# CapEEN: Image Captioning with Early Exits and Knowledge Distillation
 
-## This is the official repository for the paper BEEM
-
+## This is the official repository for the paper CapEEN
 The entire procedure could be completed in three steps:
 
 1. Initially, the requirements could be installed using the requirements.txt file
